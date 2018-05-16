@@ -20,16 +20,19 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             <?php if(!isset($_SESSION['typeUtilisateur'])) {?>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Connexion</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="inscription.php">Inscription</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inscription.php">Inscription</a>
+                </li>
             <?php }else {?>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><?php echo $_SESSION['prenom'] . " " . $_SESSION['nom']; ?></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><?php echo $_SESSION['prenom']; ?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?deconnexion">Déconnexion</a>
+                </li>
             <?php } ?>
         </ul>
     </div>
@@ -38,27 +41,30 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="">Email :</label>
-                    <input type="text" class="form-control" name="mail">
+        <form method="POST" action="traitements/traitementConnexion.php">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Email :</label>
+                        <input type="text" class="form-control" name="mail">
+                    </div>
 
-                <div class="form-group">
-                    <label for="">Mot de passe :</label>
-                    <input type="password" class="form-control" name="mdp">
+                    <div class="form-group">
+                        <label for="">Mot de passe :</label>
+                        <input type="password" class="form-control" name="mdp">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-primary" name="envoyer">Envoyer</button>
                 </div>
             </div>
-            <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-primary" name="envoyer">Envoyer</button>
-            </div>
+        </form>
         </div>
     </div>
 </div>

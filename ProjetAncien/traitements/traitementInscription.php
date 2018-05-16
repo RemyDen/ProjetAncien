@@ -35,7 +35,7 @@ if(isset($_POST['envoyer'])) {
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['nom'] = $nom;
                 $_SESSION['typeUtilisateur'] = $typeUtilisateur;
-                
+                header('Location: index.php');
             } else {
                 echo $bdd->errorInfo();
             }
