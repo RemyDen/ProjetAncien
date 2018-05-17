@@ -43,7 +43,7 @@ if(isset($_POST['envoyer'])) {
     $poste = $_POST['poste'];
     $anneePoste = $_POST['anneePoste'];
 
-    $req = "UPDATE utilisateur SET anneeDiplome = '".$anneeDiplome."', entreprise = '".$entreprise."', poste = '".$poste."', anneePoste = '".$anneePoste."', niveauEtude = '".$niveauEtude."', typeUtilisateur = '2'
+    $req = "UPDATE utilisateur SET anneeDiplome = '".$anneeDiplome."', entreprise = '".$entreprise."', poste = '".$poste."', anneePoste = '".$anneePoste."', niveauEtude = '', typeUtilisateur = '2'
             WHERE mail = '".$_SESSION['mail']."'";
     $exe = $bdd->query($req);
     if($exe) header('Location: profil.php');
