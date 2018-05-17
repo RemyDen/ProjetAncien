@@ -31,8 +31,6 @@ $res = $exe->fetchAll(PDO::FETCH_ASSOC);
 
 
     <div class="card-columns">
-
-
 <?php
 
 foreach ($res as $ancien){ ?>
