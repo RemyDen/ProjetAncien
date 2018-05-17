@@ -10,7 +10,7 @@ include "traitements/traitementInscription.php";
 
 ?>
 
-    <div class="container mt-5 mb-4">
+    <div class="container mt-5 mb-4 col-8">
         <form method="POST" action="">
             <div class="form-group">
                 <label for="">Nom :</label>

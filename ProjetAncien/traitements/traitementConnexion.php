@@ -1,6 +1,5 @@
 <?php
-include '../includes/config.php';
-if(isset($_POST['envoyer'])) {
+if(isset($_POST['envoyerConnexion'])) {
     $mail = $_POST['mail'];
     $mdp = $_POST['mdp'];
 
@@ -11,17 +10,16 @@ if(isset($_POST['envoyer'])) {
     if(empty($res)) {
         echo "<script>alert('Identifiants incorrects')</script>";
     } else {
-        if(password_verify($mdp, $res['mdp'])) { //On vérifie le mdp
+        if (password_verify($mdp, $res['mdp'])) { //On vérifie le mdp
             echo "<script>alert('Connecté !')</script>";
             $_SESSION['typeUtilisateur'] = $res['typeUtilisateur'];
             $_SESSION['prenom'] = $res['prenom'];
             $_SESSION['nom'] = $res['nom'];
             $_SESSION['mail'] = $res['mail'];
+            header('Location: ./index.php');
         } else {
-            echo "<script>alert('Mot de passe incorrect')</script>";
+            echo "<script>alert('Identifiants incorrects')</script>";
         }
     }
-    var_dump(password_verify($mdp, $res['mdp']));
-    header('Location: ../index.php');
 }
 ?>

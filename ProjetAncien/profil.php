@@ -8,7 +8,7 @@ $exe = $bdd->query($req);
 $res = $exe->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<div class="container mt-5 mb-4">
+<div class="container mt-5 mb-4 col-8">
     <div class="text-center"><a class="btn btn-primary text-center d-none" href="newAncien.php">J'ai obtenu mon diplôme</a></div>
     <form method="POST" action="">
         <div class="form-group">
