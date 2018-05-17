@@ -27,14 +27,13 @@
                     <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
             <?php }else {?>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><?php echo $_SESSION['prenom']; ?></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?deconnexion">Déconnexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profil.php">Mon profil</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['prenom']; ?></a>
+                    <div class="dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="profil.php">Mon profil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="?deconnexion">Déconnexion</a>
+                    </div>
                 </li>
             <?php } ?>
         </ul>
