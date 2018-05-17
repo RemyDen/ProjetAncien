@@ -20,14 +20,14 @@ $res = $exe->fetchAll(PDO::FETCH_ASSOC);
 <div class="container mt-5">
 
     <!-- barre de recherche -->
-    <div class="input-group mb-3">
-        <form method="get" action="">
-        <input type="text" class="form-control" placeholder="Chercher un ancien" aria-label="Chercher un ancien" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" name="recherche"><span class="oi oi-magnifying-glass"></span></button>
+    <form method="get" action="">
+        <div class="input-group mb-3">
+            <input type="text" name="recherche" class="form-control" placeholder="Chercher un ancien" aria-label="Chercher un ancien" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+            </div>
         </div>
-        </form>
-    </div>
+    </form>
+    <button class="btn btn-outline-secondary" type="submit"><span class="oi oi-magnifying-glass"></span></button>
 
 
     <div class="card-columns">
