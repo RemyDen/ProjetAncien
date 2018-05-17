@@ -1,3 +1,8 @@
+<?php
+include 'includes/config.php';
+include 'traitements/traitementConnexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,7 +48,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="POST" action="traitements/traitementConnexion.php">
+        <form method="POST" action="">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
@@ -63,7 +68,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="submit" class="btn btn-primary" name="envoyer">Envoyer</button>
+                    <button type="submit" class="btn btn-primary" name="envoyerConnexion">Envoyer</button>
                 </div>
             </div>
         </form>

@@ -46,7 +46,7 @@ foreach ($res as $ancien){ ?>
 <?php } ?>
 
         <div class="alert alert-success fixed-bottom d-none" role="alert">
-            Contacter les utilisateurs séléctionnés
+            <a href="#">Contacter les utilisateurs séléctionnés</a>
         </div>
 
     <script>
