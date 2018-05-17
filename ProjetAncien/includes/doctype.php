@@ -29,7 +29,7 @@
             <?php }else {?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['prenom']; ?></a>
-                    <div class="dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" id="profile" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="profil.php">Mon profil</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="?deconnexion">Déconnexion</a>
