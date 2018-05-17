@@ -139,6 +139,4 @@ include "traitements/traitementInscription.php";
     </div>
 
 
-<?php
-
-include "includes/bas.php";
+<?php include "includes/bas.php"; ?>

@@ -16,11 +16,12 @@ if(isset($_POST['envoyer'])) {
             $_SESSION['typeUtilisateur'] = $res['typeUtilisateur'];
             $_SESSION['prenom'] = $res['prenom'];
             $_SESSION['nom'] = $res['nom'];
+            $_SESSION['mail'] = $res['mail'];
         } else {
             echo "<script>alert('Mot de passe incorrect')</script>";
         }
     }
     var_dump(password_verify($mdp, $res['mdp']));
-    //header('Location: ../index.php');
+    header('Location: ../index.php');
 }
 ?>

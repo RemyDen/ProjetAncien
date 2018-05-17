@@ -9,7 +9,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="index.php">LeSite</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -32,6 +32,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?deconnexion">Déconnexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profil.php">Mon profil</a>
                 </li>
             <?php } ?>
         </ul>
