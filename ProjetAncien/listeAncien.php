@@ -16,8 +16,6 @@ $res = $exe->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="container mt-5">
     <div class="card-columns">
-
-
 <?php
 
 foreach ($res as $ancien){ ?>
