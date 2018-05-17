@@ -1,14 +1,15 @@
 <?php
 include 'includes/includes.php';
+include 'traitements/traitementModificationProfil.php';
 
 //On récupère les infos de la personne
 $req = "SELECT * FROM utilisateur WHERE mail = '" . $_SESSION['mail'] . "'";
 $exe = $bdd->query($req);
 $res = $exe->fetch(PDO::FETCH_ASSOC);
-var_dump($res);
 ?>
 
 <div class="container mt-5 mb-4">
+    <div class="text-center"><a class="btn btn-primary text-center d-none" href="newAncien.php">J'ai obtenu mon diplôme</a></div>
     <form method="POST" action="">
         <div class="form-group">
             <label for="">Nom :</label>
@@ -49,6 +50,11 @@ var_dump($res);
 
         <!--On affiche ou non les champs selon le type de l'utilisateur-->
         <?php if($res['typeUtilisateur'] == 1) { ?> <!--Etudiant-->
+            <!--On affiche le bouton "J'ai obtenu mon diplôme"-->
+            <script>
+                $('.d-none').removeClass('d-none')
+            </script>
+
             <div class="form-group opt" id="niveauEtude">
                 <label for="">Niveau d'étude</label>
                 <select class="form-control" name="niveauEtude">
@@ -61,28 +67,28 @@ var_dump($res);
                 </select>
             </div>
         <?php } else if($res['typeUtilisateur'] == 2) { ?>
-            <div class="form-group d-none opt" id="anneeDiplome">
+            <div class="form-group opt" id="anneeDiplome">
                 <label for="">Année d'obtention du diplôme : </label>
-                <input type="number" class="form-control" name="anneeDiplome" id="anneeDiplome" aria-describedby="helpId" placeholder="" pattern="[0-9]{4}">
+                <input type="number" class="form-control" name="anneeDiplome" id="anneeDiplome" aria-describedby="helpId" value="<?php echo $res['anneeDiplome']; ?>" pattern="[0-9]{4}">
             </div>
 
-            <div class="form-group d-none opt" id="entreprise">
+            <div class="form-group opt" id="entreprise">
                 <label for="">Entreprise (laissez blanc si chômeur) :</label>
-                <input type="text" class="form-control" name="entreprise" id="entreprise" aria-describedby="helpId" placeholder="">
+                <input type="text" class="form-control" name="entreprise" id="entreprise" aria-describedby="helpId" value="<?php echo $res['entreprise']; ?>">
             </div>
 
-            <div class="form-group d-none opt" id="poste">
+            <div class="form-group opt" id="poste">
                 <label for="">Poste occupé : </label>
-                <input type="text" class="form-control" name="poste" id="poste" aria-describedby="helpId" placeholder="">
+                <input type="text" class="form-control" name="poste" id="poste" aria-describedby="helpId" value="<?php echo $res['poste']; ?>">
             </div>
 
-            <div class="form-group d-none opt" id="anneePoste">
+            <div class="form-group opt" id="anneePoste">
                 <label for="">Année d'entrée à ce poste : </label>
-                <input type="number" class="form-control" name="anneePoste" id="anneePoste" aria-describedby="helpId" placeholder="" pattern="[0-9]{4}">
+                <input type="number" class="form-control" name="anneePoste" id="anneePoste" aria-describedby="helpId" value="<?php echo $res['anneePoste']; ?>" pattern="[0-9]{4}">
             </div>
         <?php } ?>
 
-        <div class="text-center"><button type="submit" name="envoyer" class="btn btn-primary text-center">Envoyer</button></div>
+        <div class="text-center"><button type="submit" name="envoyer" class="btn btn-primary text-center">Modifier mon profil</button></div>
     </form>
 </div>
 
