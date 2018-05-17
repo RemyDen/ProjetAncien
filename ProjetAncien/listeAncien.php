@@ -8,6 +8,9 @@
 include 'includes/includes.php';
 include 'includes/bas.php';
 include 'traitements/envoiMail.php';
+include 'traitements/chercher.php';
+
+if(!isset($_SESSION['mail'])) header('Location:index.php');
 
 $req = "SELECT * FROM utilisateur WHERE typeUtilisateur = 2";
 $exe = $bdd->query($req);
@@ -15,9 +18,19 @@ $res = $exe->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <div class="container mt-5">
+
+    <!-- barre de recherche -->
+    <div class="input-group mb-3">
+        <form method="get" action="">
+        <input type="text" class="form-control" placeholder="Chercher un ancien" aria-label="Chercher un ancien" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" name="recherche"><span class="oi oi-magnifying-glass"></span></button>
+        </div>
+        </form>
+    </div>
+
+
     <div class="card-columns">
-
-
 <?php
 
 foreach ($res as $ancien){ ?>
@@ -28,14 +41,14 @@ foreach ($res as $ancien){ ?>
 -->
 
     <div class="card">
-        <div class="card-header"><?php echo $ancien['nom'].' '.$ancien['prenom']; ?></div>
+        <div class="card-header"><?php echo $ancien['prenom'].' '.$ancien['nom']; ?></div>
         <div class="card-body">
             <h5 class="card-title"><?php if($ancien['entreprise']) echo $ancien['entreprise'].' ('.$ancien['poste'].')';
             else echo 'Chômeur'; ?></h5>
-            <p class="card-text">Email : <span class="mail"<?php echo $ancien['mail']; ?></span>
+            <p class="card-text">Email : <span class="mail"><?php echo $ancien['mail']; ?></span>
             <br>Ville : <?php echo $ancien['ville']; ?></p>
             <div class="input-group">
-                <a class="btn btn-primary" href="">Contacter</a>
+                <a class="btn btn-primary contact" data-email="<?php echo $ancien['mail']; ?>" data-toggle="modal" data-target="#mailModal" href="">Contacter</a>
                 <div class="custom-control custom-checkbox ml-auto">
                     <input type="checkbox" class="custom-control-input" data-email="<?php echo $ancien['mail']; ?>" id="<?php echo $ancien['id']; ?>">
                     <label class="custom-control-label" for="<?php echo $ancien['id']; ?>"></label>
@@ -68,21 +81,20 @@ foreach ($res as $ancien){ ?>
                                 <div class="form-group">
                                     <label for="">Destinataire : </label>
                                     <input type="text"
-                                           class="form-control form-control-sm|lg" name="dest" id="dest" aria-describedby="helpId"
-                                           placeholder="">
-                                    <small id="helpId" class="form-text text-muted">Help text</small>
+                                           class="form-control" name="dest" id="dest"
+                                           placeholder="" disabled>
+
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Objet : </label>
-                                    <input type="text" class="form-control" name="obj" id="" aria-describedby="helpId"
+                                    <input type="text" class="form-control" name="obj" id="obj"
                                            placeholder="">
-                                    <small id="helpId" class="form-text text-muted">Help text</small>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Corps : </label>
-                                    <textarea class="form-control" name="corps" id="" rows="3"></textarea>
+                                    <textarea class="form-control" name="corps" id="corps" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +126,10 @@ foreach ($res as $ancien){ ?>
 
             })
             $('#dest').val(liste);
+        })
 
+        $('.contact').click( function () {
+            $('#dest').val($(this).attr('data-email'));
         })
 
     </script>
