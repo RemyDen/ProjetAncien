@@ -6,17 +6,16 @@
  * Time: 09:30
  */
 include 'includes/includes.php';
-include 'includes/bas.php';
 include 'traitements/envoiMail.php';
 include 'traitements/chercher.php';
 
 if(!isset($_SESSION['mail'])) header('Location:index.php');
 
-if(!isset($_GET['recherche']) OR strlen($_GET['recherche']) <= 2) {
-    $req = "SELECT * FROM utilisateur WHERE typeUtilisateur = 2";
-    $exe = $bdd->query($req);
-    $res = $exe->fetchAll(PDO::FETCH_ASSOC);
-}
+if(!isset($_GET['recherche']) OR (isset($_GET['recherche']) AND strlen($_GET['recherche']) < 3)) {
+        $req = "SELECT * FROM utilisateur WHERE typeUtilisateur = 2";
+        $exe = $bdd->query($req);
+        $res = $exe->fetchAll(PDO::FETCH_ASSOC);
+    }
 ?>
 
 <div class="container mt-5">
@@ -24,12 +23,12 @@ if(!isset($_GET['recherche']) OR strlen($_GET['recherche']) <= 2) {
     <!-- barre de recherche -->
     <form method="get" action="">
         <div class="input-group mb-3">
-            <input type="text" name="recherche" class="form-control" placeholder="Chercher un ancien" aria-label="Chercher un ancien" aria-describedby="basic-addon2">
+            <input type="text" name="recherche" class="form-control" placeholder="Chercher un ancien étudiant" aria-label="Chercher un ancien" aria-describedby="basic-addon2">
             <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit"><span class="oi oi-magnifying-glass"></span></button>
             </div>
         </div>
     </form>
-    <button class="btn btn-outline-secondary" type="submit"><span class="oi oi-magnifying-glass"></span></button>
 
 
     <div class="card-columns">
@@ -85,7 +84,6 @@ foreach ($res as $ancien){ ?>
                                     <input type="text"
                                            class="form-control" name="dest" id="dest"
                                            placeholder="" disabled>
-
                                 </div>
 
                                 <div class="form-group">
@@ -141,3 +139,4 @@ foreach ($res as $ancien){ ?>
 
 <?php
 include 'includes/bas.php';
+?>

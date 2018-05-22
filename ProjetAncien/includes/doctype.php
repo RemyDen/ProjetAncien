@@ -33,6 +33,9 @@ include 'traitements/traitementConnexion.php';
                     <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
             <?php }else {?>
+                <li class="nav-item">
+                    <a class="nav-link" href="listeAncien.php" id="listeAncien" aria-haspopup="true" aria-expanded="false">Liste des anciens</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['prenom']; ?></a>
                     <div class="dropdown-menu dropdown-menu-right" id="profile" aria-labelledby="navbarDropdown">
