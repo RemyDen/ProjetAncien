@@ -22,4 +22,10 @@ if(isset($_POST['envoyerConnexion'])) {
         }
     }
 }
+
+if(isset($_POST['userId'])){
+    $_SESSION['prenom']= $_POST['firstName'];
+    $_SESSION['nom'] = $_POST['lastName'];
+    $_SESSION['mail'] = $_POST['email'];
+}
 ?>

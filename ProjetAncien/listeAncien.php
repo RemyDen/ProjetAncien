@@ -59,11 +59,14 @@ foreach ($res as $ancien){ ?>
     </div>
 
 <?php } ?>
-
-        <div class="alert alert-primary fixed-bottom d-none" role="alert" style="margin-bottom: 0">
-            Contacter les utilisateurs séléctionnés <button class="btn btn-primary" id="mails"
-                    data-toggle="modal" data-target="#mailModal"><span class="oi oi-envelope-closed"></span></button>
+        <div class="text-center">
+            <div class="alert alert-primary fixed-bottom d-none" role="alert" style="margin-bottom: 0">
+                Contacter les utilisateurs séléctionnés
+                <button class="btn btn-primary" id="mails" data-toggle="modal"
+                        data-target="#mailModal"><span class="oi oi-envelope-closed"></span></button>
+            </div>
         </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"

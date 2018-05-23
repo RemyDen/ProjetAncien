@@ -1,31 +1,43 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- Facebook -->
 <script>
-    function statusChangeCallback(response) {
-        if (response.status === 'connected') {
-            console.log('Récupération des informations...');
-            FB.api('/me?fields=email,last_name,first_name,name', function (response) {
-                console.log('Connecté en tant que ' + response.name);
-                console.log(response.email);
-                //window.location.reload()
-            });
-        }
-    }
+    var user = {userId : "", accessToken : "", firstName : "", lastName : "",  email : ""};
 
-    function init() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
+    function logIn() {
+        FB.login(function (response) {
+            console.log(response);
+            if(response.status == "connected") {
+                user.userId = response.authResponse.userID;
+                user.accessToken = response.authResponse.accessToken;
+
+                FB.api('/me',{fields:'first_name,last_name,email'}, function (userData) {
+
+                    user.firstName = userData.first_name;
+                    user.lastName = userData.last_name;
+                    user.email = userData.email;
+
+                    $.ajax({
+                        url: "index.php",
+                        method: "POST",
+                        data: user,
+                        dataType: "text",
+                        success: function (ServerResponse, status) {
+                            if(status == "success")
+                                window.location = "index.php";
+                        }
+                    })
+
+                });
+            }
+        }, {scope: 'public_profile, email'})
     }
 
     window.fbAsyncInit = function() {
         FB.init({
-            appId      : '1718320808254376',
+            appId      : '1416192188527534',
             xfbml      : true,
             version    : 'v3.0'
         });
-
-        /*init();*/
     };
 
     (function(d, s, id){
@@ -37,7 +49,7 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<!-- Google
+<!-- Google -->
 <script>
     function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
@@ -54,7 +66,6 @@
         console.log("ID Token: " + id_token);
     };
 </script>
--->
 
 </body>
 </html>
