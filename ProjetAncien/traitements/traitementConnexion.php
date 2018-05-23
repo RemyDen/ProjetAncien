@@ -26,5 +26,11 @@ if(isset($_POST['userId'])){
     $_SESSION['prenom']= $_POST['firstName'];
     $_SESSION['nom'] = $_POST['lastName'];
     $_SESSION['mail'] = $_POST['email'];
+
+    $req = "SELECT typeUtilisateur FROM utilisateur WHERE mail = '".$_SESSION['mail']."'";
+    $exe = $bdd->query($req);
+    $res = $exe->fetch(PDO::FETCH_ASSOC);
+
+    $_SESSION['typeUtilisateur'] = $res['typeUtilisateur'];
 }
 ?>

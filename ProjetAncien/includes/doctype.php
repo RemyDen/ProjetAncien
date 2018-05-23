@@ -78,9 +78,6 @@ include 'traitements/traitementConnexion.php';
                     </button>
                 </div>
 
-                <!-- Google -->
-                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-
                 <div class="dropdown-divider"></div>
 
                 <div class="modal-body">
@@ -100,6 +97,8 @@ include 'traitements/traitementConnexion.php';
                     <button type="button" class="btn btn-primary" style="background-color: #3b5998" onclick="logIn()">via Facebook</button>
 
                     <button type="submit" class="btn btn-primary" name="envoyerConnexion">Envoyer</button>
+
+                    <button type="button" class="g-signin2"  data-onsuccess="onSignIn" data-theme="dark">via Google</button>
                 </div>
             </div>
         </form>
