@@ -7,8 +7,7 @@ if(isset($_POST['envoyerConnexion'])) {
     $exe = $bdd->query($req);
     $res = $exe->fetch(PDO::FETCH_ASSOC);
 
-    //OR $res['estCompte'] == 0
-    if(empty($res)) {
+    if(empty($res) OR $res['estCompte'] == 0) {
         echo "<script>alert('Identifiants incorrects')</script>";
     } else {
         if (password_verify($mdp, $res['mdp'])) { //On vérifie le mdp

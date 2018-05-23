@@ -31,13 +31,14 @@ include 'traitements/traitementConnexion.php';
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
-            <?php if(!isset($_SESSION['prenom'])) {?>
+            <?php if(!isset($_SESSION['prenom'])) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Connexion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
+
             <?php }else {
                 //if(isset($_SESSION['typeUtilisateur']) AND $_SESSION['typeUtilisateur'] == "3") {?>
                     <li class="nav-item">
@@ -46,7 +47,8 @@ include 'traitements/traitementConnexion.php';
                     <li class="nav-item">
                         <a class="nav-link" href="import.php" aria-haspopup="true" aria-expanded="false">Import d'Etudiants</a>
                     </li>
-                <?php// }?>
+                <?php// } ?>
+      
                 <li class="nav-item">
                     <a class="nav-link" href="listeAncien.php" id="listeAncien" aria-haspopup="true" aria-expanded="false">Liste des anciens</a>
                 </li>
@@ -76,6 +78,7 @@ include 'traitements/traitementConnexion.php';
                 </div>
                 <!-- Facebook -->
                 <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+              
                 <!-- Google -->
                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 
