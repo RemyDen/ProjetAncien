@@ -31,7 +31,7 @@ include 'traitements/traitementConnexion.php';
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
-            <?php if(!isset($_SESSION['typeUtilisateur'])) {?>
+            <?php if(!isset($_SESSION['mail'])) {?>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Connexion</a>
                 </li>
@@ -68,8 +68,9 @@ include 'traitements/traitementConnexion.php';
                 </div>
                 <!-- Facebook -->
                 <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-                <!-- Google -->
+                <!-- Google
                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                -->
 
                 <div class="dropdown-divider"></div>
 

@@ -37,7 +37,7 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<!-- Google -->
+<!-- Google
 <script>
     function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
@@ -54,6 +54,7 @@
         console.log("ID Token: " + id_token);
     };
 </script>
+-->
 
 </body>
 </html>
