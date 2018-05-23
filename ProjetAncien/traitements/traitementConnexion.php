@@ -16,7 +16,6 @@ if(isset($_POST['envoyerConnexion'])) {
             $_SESSION['prenom'] = $res['prenom'];
             $_SESSION['nom'] = $res['nom'];
             $_SESSION['mail'] = $res['mail'];
-            header('Location: ./index.php');
         } else {
             echo "<script>alert('Identifiants incorrects')</script>";
         }

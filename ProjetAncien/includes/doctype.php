@@ -9,7 +9,7 @@ include 'traitements/traitementConnexion.php';
     <meta charset="UTF-8">
 
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="925167131697-sv98fdaf7u1aqt8rpn9baddsigsqc8k5.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -39,15 +39,16 @@ include 'traitements/traitementConnexion.php';
                     <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
 
-            <?php }else {
-                //if(isset($_SESSION['typeUtilisateur']) AND $_SESSION['typeUtilisateur'] == "3") {?>
+            <?php } else {
+                if(isset($_SESSION['typeUtilisateur']) AND $_SESSION['typeUtilisateur'] == "3") { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="export.php" aria-haspopup="true" aria-expanded="false">Export d'Anciens</a>
+                        <a class="nav-link" href="export.php">Export</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="import.php" aria-haspopup="true" aria-expanded="false">Import d'Etudiants</a>
+                        <a class="nav-link" href="import.php">Import</a>
                     </li>
-                <?php// } ?>
+            <?php  } ?>
       
                 <li class="nav-item">
                     <a class="nav-link" href="listeAncien.php" id="listeAncien" aria-haspopup="true" aria-expanded="false">Liste des anciens</a>
@@ -57,7 +58,7 @@ include 'traitements/traitementConnexion.php';
                     <div class="dropdown-menu dropdown-menu-right" id="profile" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="profil.php">Mon profil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="?deconnexion">Déconnexion</a>
+                        <a class="dropdown-item" href="?deconnexion" onclick="logOut()">Déconnexion</a>
                     </div>
                 </li>
             <?php } ?>
@@ -76,9 +77,7 @@ include 'traitements/traitementConnexion.php';
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <!-- Facebook -->
-                <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-              
+
                 <!-- Google -->
                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 
@@ -87,15 +86,17 @@ include 'traitements/traitementConnexion.php';
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Email :</label>
-                        <input type="text" class="form-control" name="mail">
+                        <input type="text" class="form-control" name="mail" required>
                     </div>
 
                     <div class="form-group">
                         <label for="">Mot de passe :</label>
-                        <input type="password" class="form-control" name="mdp">
+                        <input type="password" class="form-control" name="mdp" required>
                     </div>
                 </div>
+
                 <div class="modal-footer justify-content-center">
+                    <button class="btn btn-primary" type="button" onclick="logIn()">via Facebook</button>
                     <button type="submit" class="btn btn-primary" name="envoyerConnexion">Envoyer</button>
                 </div>
             </div>
