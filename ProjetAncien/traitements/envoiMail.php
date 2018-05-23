@@ -9,7 +9,7 @@ if(isset($_POST['mails'])){
     $dest = $_POST['dest'];
     $obj = $_POST['obj'];
     $corps = $_POST['corps'];
-    $header = 'From: toto';
+    $header = 'From: L3Miage';
 
     $mails = explode(';', $dest);
     foreach ($mails as $mail){

@@ -134,7 +134,7 @@ include "traitements/traitementInscription.php";
                 <small id="helpId" class="form-text text-muted">Ex : 2018</small>
             </div>
 
-            <div class="text-center"><button type="submit" name="envoyer" class="btn btn-primary text-center">Envoyer</button></div>
+            <div class="text-center"><button type="submit" name="envoyerInscription" class="btn btn-primary text-center">Envoyer</button></div>
         </form>
     </div>
 
