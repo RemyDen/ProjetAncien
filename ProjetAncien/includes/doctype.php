@@ -9,7 +9,7 @@ include 'traitements/traitementConnexion.php';
     <meta charset="UTF-8">
 
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="293901085652-0n9iqe39fgjft78q1unqum1hnn91ul76.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -38,17 +38,14 @@ include 'traitements/traitementConnexion.php';
                 <li class="nav-item">
                     <a class="nav-link" href="inscription.php">Inscription</a>
                 </li>
-
-            <?php }else {
-                //if(isset($_SESSION['typeUtilisateur']) AND $_SESSION['typeUtilisateur'] == "3") {?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="export.php" aria-haspopup="true" aria-expanded="false">Export d'Anciens</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="import.php" aria-haspopup="true" aria-expanded="false">Import d'Etudiants</a>
-                    </li>
-                <?php// } ?>
-      
+            <?php } else {if(isset($_SESSION['typeUtilisateur']) AND $_SESSION['typeUtilisateur']==3){?>
+                <li class="nav-item">
+                    <a href="import.php" class="nav-link">Import</a>
+                </li>
+                <li class="nav-item">
+                    <a href="export.php" class="nav-link">Export</a>
+                </li>
+            <?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="listeAncien.php" id="listeAncien" aria-haspopup="true" aria-expanded="false">Liste des anciens</a>
                 </li>
@@ -57,7 +54,7 @@ include 'traitements/traitementConnexion.php';
                     <div class="dropdown-menu dropdown-menu-right" id="profile" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="profil.php">Mon profil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="?deconnexion">Déconnexion</a>
+                        <a class="dropdown-item" href="?deconnexion" onclick="logOut()">Déconnexion</a>
                     </div>
                 </li>
             <?php } ?>
@@ -96,6 +93,7 @@ include 'traitements/traitementConnexion.php';
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" style="background-color: #3b5998" onclick="logIn()">via Facebook</button>
                     <button type="submit" class="btn btn-primary" name="envoyerConnexion">Envoyer</button>
                 </div>
             </div>

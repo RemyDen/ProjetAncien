@@ -6,3 +6,4 @@ if(isset($_GET['deconnexion'])) {
     unset($_SESSION['mail']);
     header('Location: index.php');
 }
+?>
