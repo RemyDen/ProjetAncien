@@ -7,6 +7,7 @@ if(isset($_POST['envoyerConnexion'])) {
     $exe = $bdd->query($req);
     $res = $exe->fetch(PDO::FETCH_ASSOC);
 
+    //OR $res['estCompte'] == 0
     if(empty($res)) {
         echo "<script>alert('Identifiants incorrects')</script>";
     } else {
@@ -21,5 +22,11 @@ if(isset($_POST['envoyerConnexion'])) {
             echo "<script>alert('Identifiants incorrects')</script>";
         }
     }
+}
+
+if(isset($_POST['userId'])){
+    $_SESSION['prenom']= $_POST['firstName'];
+    $_SESSION['nom'] = $_POST['lastName'];
+    $_SESSION['mail'] = $_POST['email'];
 }
 ?>
