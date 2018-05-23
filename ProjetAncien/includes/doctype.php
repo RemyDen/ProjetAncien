@@ -7,12 +7,18 @@ include 'traitements/traitementConnexion.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="icon/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Anciens</title>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="index.php">LeSite</a>
@@ -49,7 +55,7 @@ include 'traitements/traitementConnexion.php';
     </div>
 </nav>
 
-<!-- Modal -->
+<!-- Modal de connexion-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form method="POST" action="">
@@ -60,6 +66,13 @@ include 'traitements/traitementConnexion.php';
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <!-- Facebook -->
+                <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                <!-- Google -->
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+                <div class="dropdown-divider"></div>
+
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Email :</label>
